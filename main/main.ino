@@ -44,6 +44,6 @@ void setup()
 } 
 
 void loop() {
-  moteurstart(255, moteur);
+  motorstart(255, moteur);
   delay(5000);
 } 
