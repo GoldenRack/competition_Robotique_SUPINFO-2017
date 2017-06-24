@@ -1,0 +1,8 @@
+montagne bleu = C : 3705 R : 1178 G 1289 B 
+caisse et reine = C : 505 R: 189 G: 204 B: 179  (95,103,90)
+train = C : 508 R: 251 G: 185 B: 166 (126,93,83)
+Depart = C : 272 R: 191 G: 89 B: 89 (179,83,83)
+Jardin and cie = C : 643 R: 310 G: 256 B: 149 (123,101,59)
+Ballons = C : 961 R: 475 G: 364 B:201 (126,96,53)
+
+
