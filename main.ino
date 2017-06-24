@@ -1,8 +1,11 @@
 #include <Adafruit_TCS34725.h>
 #include <Moteur.h>
 #include <Servo.h>
+#include "Capteurrgb"
 #include "motor.h"
 #include "parking.ino"
+#include "caisse.ino"
+#include "bowling.ino"
 
 Moteur moteur(2,3,4,5,6,7);
 
@@ -89,6 +92,43 @@ void setup()
 
 
 void loop() {
+  char step = 0;
   parking();
-  caisse();
+  while(step != 1){
+  	if(getColor(clear, rouge, vert, bleu, tcs, controle) == 2){
+  		step = 1;
+  		delay(2000);
+  		caisse();
+  	}
+  }
+  while(step != 2){
+  	if(getColor(clear, rouge, vert, bleu, tcs, controle) == 3){
+  		step = 2;
+  		train();
+  	}
+  }
+  while(step != 3){
+  	if(getColor(clear, rouge, vert, bleu, tcs, controle) == 4){
+  		step = 3;
+  		rollerCoaster();
+  	}
+  }
+  while(step != 4){
+  	if(getColor(clear, rouge, vert, bleu, tcs, controle) == 1){
+  		step = 4;
+  		bowling();
+  	}
+  }
+  while(step != 5){
+  	if(getColor(clear, rouge, vert, bleu, tcs, controle) == 5){
+  		step = 5;
+  		balloon();
+  	}
+  }
+  while(step != 6){
+  	if(getColor(clear, rouge, vert, bleu, tcs, controle) == 6){
+  		step = 6;
+  		balloon();
+  	}
+  }
 } 
