@@ -13,13 +13,13 @@ void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int S
 		{	
 			moteur.stop(3);
 			//déploiement bras
-			distance = getSonarDistance(  SonarTriggerArriere, SonarEchoArriere);
+			distance = getSonarDistance( SonarTriggerArriere, SonarEchoArriere);
 			servoarm.write(90);
 			while(distance<190)
 				{
 
 				distance = getSonarDistance(SonarTriggerArriere, SonarEchoArriere);
-				moteur.Start(3,200);
+				motorstart(255, moteur);
 
 
 
@@ -27,8 +27,8 @@ void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int S
 				 // statement
 				}
 				moteur.stop(3);
-				servo2.write(0);
-				moteurstart(255, moteur);
+				servoarm.write(0);
+				motorstart(255, moteur);
 
 			
 
@@ -37,12 +37,12 @@ void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int S
 	}
 	else if (getSonarDistance(  SonarTriggerDroite, SonarEchoDroite)>lecheMur)
 	{
-		motor.reculer(3,200);
+		moteur.reculer(3,200);
 		delay(1000);
-		motor.avancer(2, 200);
+		moteur.avancer(2, 200);
 		delay(500);
-		moteurstart(255, moteur);
-		Ftrain(servoarm, SonarTriggerArriere, SonarEchoArriere, SonarEchoDroite, SonarTriggerDroite);
+		motorstart(255, moteur);
+		Ftrain(servoarm, SonarTriggerArriere, SonarEchoArriere, SonarEchoDroite, SonarTriggerDroite, controle, moteur);
 
 	}
 }
