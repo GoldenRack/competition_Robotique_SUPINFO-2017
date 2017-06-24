@@ -16,8 +16,8 @@ void rotate(int turn, int rotation, int rotationTime, Moteur moteur){
   }
 }
 
-void moteurstart(Moteur moteur){
-  for (int i = 0; i < 256; ++i)
+void motorstart(int Motor_speed, Moteur moteur){
+  for (int i = 0; i <= Motor_speed; ++i)
   {
     moteur.avancer(3,i);
     delay(10);
