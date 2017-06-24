@@ -1,6 +1,9 @@
 #include <Adafruit_TCS34725.h>
 #include <Moteur.h>
 #include <Servo.h> 
+#include "motor.h"
+
+Moteur moteur(2,3,4,5,6,7);
 
 //Définition des pins triggers et echos pour les sonars
 int SonarTriggerAvant = 26;
@@ -41,5 +44,6 @@ void setup()
 } 
 
 void loop() {
-  
+  rotate(1, 1, rotationTime, moteur);
+  delay(5000);
 } 
