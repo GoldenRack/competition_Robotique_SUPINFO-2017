@@ -59,6 +59,9 @@ void Ftrain(servo2)
 		
 
 	}
+	else:
+		moteur.avancer(3,200)
+
 
 
 
