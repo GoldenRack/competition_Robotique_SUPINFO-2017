@@ -15,3 +15,11 @@ void rotate(int turn, int rotation, int rotationTime, Moteur moteur){
     moteur.stop(3);
   }
 }
+
+void moteurstart(Moteur moteur){
+  for (int i = 0; i < 256; ++i)
+  {
+    moteur.avancer(3,i);
+    delay(10);
+  }
+}
