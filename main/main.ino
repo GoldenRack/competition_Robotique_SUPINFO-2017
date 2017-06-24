@@ -41,9 +41,11 @@ void setup()
   
   servorgb.attach(11);
   servoarm.attach(12);
-} 
+}
 
 void loop() {
-  motorstart(255, moteur);
+  moteur.avancer(3, 255);
+  delay(3000);
+  moteur.stop(3);
   delay(5000);
-} 
+}
