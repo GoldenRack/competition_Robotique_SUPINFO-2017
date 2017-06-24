@@ -1,11 +1,8 @@
-#include <Wire.h>
-#include <Adafruit_TCS34725.h>
 #include <Moteur.h>
 #include <Servo.h> 
 #include "motor.h"
 #include "sonar.h"
-#include "Capteurrgb.h"
-#include "train_fantome.h"
+
 
 Moteur moteur(2,3,4,5,6,7);
 
@@ -20,7 +17,7 @@ int SonarEchoArriere = 33;
 int SonarEchoDroite = 23;
 int SonarEchoGauche = 29;
 
-int rotationTime = 775;
+int rotationTime = 550;
 
 Servo servorgb;
 Servo servoarm;
@@ -43,10 +40,43 @@ void setup()
   digitalWrite(SonarTriggerGauche, LOW);
 
   
-  servorgb.attach(11);
-  servoarm.attach(12);
+  servorgb.attach(12);
+  servoarm.attach(11);
+  servorgb.write(40);
+  servoarm.write(0);
+  Serial.begin(9600);
+  
 }
 
-void loop() {
 
+void loop()
+{
+  motorstart(128, moteur);
+  delay(1000);
+  while(getSonarDistance(SonarTriggerArriere, SonarEchoArriere) < 55){
+    delayMicroseconds(10);
+  }
+  moteur.stop(3);
+  delay(1000);
+  while (getSonarDistance(SonarTriggerArriere, SonarEchoArriere) > 25)
+  {
+    moteur.reculer(3, 128);
+    delayMicroseconds(10);
+  }
+  moteur.avancer(2, 255);
+  moteur.reculer(1, 255);
+  delay(rotationTime);
+  moteur.stop(3);
+  moteur.avancer(3, 255);
+  while (getSonarDistance(SonarTriggerArriere, SonarEchoArriere) < 1000)
+  {
+    moteur.avancer(3, 255);
+    delayMicroseconds(10);
+  }  
+  moteur.stop(3);
+  servoarm.write(140);
+  delay(2000);
+  servoarm.write(0);
+  delay(100000);
 }
+
