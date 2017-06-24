@@ -1,4 +1,4 @@
-/* ALGO PARKING
+./* ALGO PARKING
 1 ER ETAPE 
 CONNAITRE SA POTITION AUTOUR DE SOIT 
 	(deduire potion par rapport retour sonnard puis tourner sur soit meme  pas a pas un fois la condition on face un mur obtenu )
