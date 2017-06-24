@@ -13,23 +13,13 @@ int getSonarDistance(int trigger, int echo){
 int getPos(int SonarTriggerAvant, int SonarTriggerArriere, int SonarTriggerDroite, int SonarTriggerGauche, int SonarEchoAvant, int SonarEchoArriere, int SonarEchoDroite, int SonarEchoGauche){
   int mmAvant, mmArriere, mmDroite, mmGauche;
   mmAvant = getSonarDistance(SonarTriggerAvant, SonarEchoAvant);
+  delayMicroseconds(10);
   mmArriere = getSonarDistance(SonarTriggerArriere, SonarEchoArriere);
+  delayMicroseconds(10);
   mmDroite = getSonarDistance(SonarTriggerDroite, SonarEchoDroite);
+  delayMicroseconds(10);
   mmGauche = getSonarDistance(SonarTriggerGauche, SonarEchoGauche);
+  delayMicroseconds(10);
   return mmAvant, mmArriere, mmDroite, mmGauche;
-}
-
-void getOrientation(int SonarTriggerAvant, int SonarTriggerArriere, int SonarTriggerDroite, int SonarTriggerGauche, int SonarEchoAvant, int SonarEchoArriere, int SonarEchoDroite, int SonarEchoGauche, int robotWidth, int rotationTime, Moteur moteur)
-{
-  bool north;
-  int mmAvant, mmArriere, mmDroite, mmGauche = getPos(SonarTriggerAvant, SonarTriggerArriere, SonarTriggerDroite, SonarTriggerGauche, SonarEchoAvant, SonarEchoArriere, SonarEchoDroite, SonarEchoGauche);
-  if (getSonarDistance(SonarTriggerDroite, SonarEchoDroite) >= 500 - robotWidth/2 or 
-    getSonarDistance(SonarTriggerGauche, SonarEchoGauche) >= 500 - robotWidth/2)north = true;
-  else north = false;
-  
-  if (north){
-    rotate(1, 2, rotationTime, moteur);
-    moteur.stop(3);
-  }
 }
 
