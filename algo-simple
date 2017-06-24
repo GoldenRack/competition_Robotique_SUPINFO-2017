@@ -1,0 +1,16 @@
+/* ALGO PARKING
+1 ER ETAPE 
+CONNAITRE SA POTITION AUTOUR DE SOIT 
+	(deduire potion par rapport retour sonnard puis tourner sur soit meme  pas a pas un fois la condition on face un mur obtenu )
+TOUCHER LES DEUX MURS PUIS 
+	(avance jusqua  capteur de pression toucher )
+PUIS ORIANTER AVANT VERS LE NORD *\
+
+ANVANCER PUIS 
+/* ALGO CAISSE
+ON RENTRE ANVANT NORD 
+ON AVANCE VERS LE NORD JUSQUE LA POTION VOULU  
+PUIS ON S'arrete puis on fait un quart de tour vers "EST" on avance.  puis le sonard avant vas donner la distance.  puis quard  tour ver le nord   fonce dessus jusqu'a pression capteur de pression.  (tout tombe ) puis demi tour vers est on avance tout droit.
+*\
+/* ALGO TRAIN FANTOME 
+ON S'arrete puis on met le bras 90 nord on avance tant que le capteur arriere sur une longueur 1900 mm. puis on replie le bras on avance  tout droit 
