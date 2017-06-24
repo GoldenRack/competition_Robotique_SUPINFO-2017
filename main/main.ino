@@ -1,6 +1,9 @@
+#include <Wire.h>
 #include <Adafruit_TCS34725.h>
 #include <Moteur.h>
 #include <Servo.h> 
+#include "sonar.h"
+#include "Capteurrgb.h"
 #include "motor.h"
 #include "train_fantome.h"
 

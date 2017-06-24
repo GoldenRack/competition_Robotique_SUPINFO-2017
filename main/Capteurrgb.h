@@ -1,6 +1,3 @@
-#include <Wire.h>
-#include <Adafruit_TCS34725.h>
-
 int getcolor(int control)
 {
 	Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X);
