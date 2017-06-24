@@ -1,4 +1,4 @@
-void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int SonarEchoDroite, int SonarTriggerDroite, uint16_t clear, uint16_t rouge, uint16_t bleu, uint16_t vert, Adafruit_TCS34725 tcs, int controle, Moteur moteur)
+void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int SonarEchoDroite, int SonarTriggerDroite, int controle, Moteur moteur)
 
 {
 	int lecheMur = 100;
@@ -8,7 +8,7 @@ void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int S
 	{
 		unsigned char color ;
 		float distance ;
-		color = getcolor(clear,rouge,bleu,tcs,controle);
+		color = getcolor(controle);
 		if  (color = 3)/// couleur gris train fantom
 		{	
 			moteur.stop(3);

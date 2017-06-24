@@ -2,6 +2,7 @@
 #include <Moteur.h>
 #include <Servo.h> 
 #include "motor.h"
+#include "train_fantome.h"
 
 Moteur moteur(2,3,4,5,6,7);
 
@@ -44,8 +45,5 @@ void setup()
 }
 
 void loop() {
-  moteur.avancer(3, 255);
-  delay(3000);
-  moteur.stop(3);
-  delay(5000);
+
 }
