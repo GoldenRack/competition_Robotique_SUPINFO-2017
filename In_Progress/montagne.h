@@ -1,8 +1,10 @@
 void montagne(int control, Moteur moteur)
 
+int rougeM, vertM, bleuM, clearM = colorMontagne(control);
+
 while(1){
 	delay(100);
-	if(getcolor(control) == 4)
+	if(getcolor(control,rougeM, vertM, bleuM, clearM) == 4)
 	{
 		continue;
 	}
@@ -13,12 +15,12 @@ while(1){
 
 }
 
-rotate(1, 1, 18000,moteur)
+rotate(1, 1,0,< moteur)
 delay(10);
 motorstart(128,moteur)
 while(1){
 	delay(100);
-	if(getcolor(control) != 4)
+	if(getcolor(control,rougeM, vertM, bleuM, clearM) != 4)
 	{
 		continue;
 	}
@@ -28,6 +30,6 @@ while(1){
 	}    
 }
 delay(4500)
-rotate(1, 1, 18000,moteur)
+rotate(1, 1, 0,moteur)
 delay(10);
 motorstart(128,moteur)
