@@ -25,3 +25,11 @@ void motorstart(int Motor_speed, Moteur moteur){
   }
 }
 
+void moteurback(int Motor_speed, Moteur moteur){
+  for (int i = 0; i <= Motor_speed; ++i)
+  {
+    moteur.reculer(3,i);
+    delay(10);
+  }
+}
+

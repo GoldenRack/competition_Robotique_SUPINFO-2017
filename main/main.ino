@@ -6,6 +6,7 @@
 #include "sonar.h"
 #include "Capteurrgb.h"
 #include "train_fantome.h"
+#include "caisse.h"
 
 Moteur moteur(2,3,4,5,6,7);
 
@@ -49,14 +50,7 @@ void setup()
 }
 
 void loop() {
-  motorstart(255, moteur);
-  delay(2000);
-  for (int i = 0; i < 18000; ++i)
-  {
-    moteur.avancer(1, 128);
-    moteur.reculer(2, 128);
-  }
-  moteur.stop(3);
-  delay(5000);
+  caisse(SonarTriggerAvant, SonarEchoAvant, rotationTime, moteur);
+  delay(50000);
 
 }
