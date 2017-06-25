@@ -1,0 +1,55 @@
+void TirBallon()
+{
+	color = getcolor(clear,rouge,bleu,tcs,controle);
+		if  (color = 5)
+		{
+			moteur.Start(3,200);
+			servoarm.write(180);
+			delay(1000);
+			while (getSonarDistance(SonarTriggerArriere, SonarEchoArriere) < 900) // foncer ballon de face
+  				{
+    			moteur.avancer(3, 255);
+    			delayMicroseconds(10);
+  				}  
+  			moteur.stop(3);
+  			while(getSonarDistance(SonarTriggerArriere, SonarEchoArriere) > 500)
+  			{
+  				moteur.reculer(3, 255);
+    			delayMicroseconds(10);
+  			} // on recule pour revenir en arrier vers arriver
+  			moteur.stop(3);
+
+  			delay(1000);
+  			moteur.avancer(1, 255);
+  			delay(550); // tournée a 45 degres
+  			moteur.stop(3);
+
+  			moteur.avancer(3,255);
+  			delay(550);/// foncer dans le ballon du milleux
+  			moteur.stop(3);
+
+  			moteur.reculer(3,255);// on recule au centre
+  			servoarm.write(0);
+  			delay(5000);
+  			moteur.stop(3);
+
+  			moteur.avancer(1, 255);
+  			delay(550); // tournée a 45 degres
+  			moteur.stop(3);
+  			servoarm.write(180);
+
+
+  			moteur.avancer(3,255); // planter le dergnier  ballon
+  			delay(3000);
+  			moteur.stop(3);
+
+  			moteur.reculer(3,255); // 
+  			delay(1000);
+  			moteur.stop(3);
+
+
+
+
+		}
+			 
+}
