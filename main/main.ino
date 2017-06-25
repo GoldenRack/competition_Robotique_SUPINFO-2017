@@ -14,11 +14,13 @@ Moteur moteur(2,3,4,5,6,7);
 int SonarTriggerAvant = 26;
 int SonarTriggerArriere = 32;
 int SonarTriggerDroite = 22;
+int SonarTriggerDroite2 = 38;
 int SonarTriggerGauche = 28;
 
 int SonarEchoAvant = 27;
 int SonarEchoArriere = 33;
 int SonarEchoDroite = 23;
+int SonarEchoDroite2 = 39;
 int SonarEchoGauche = 29;
 
 int rotationTime = 18000;
@@ -31,18 +33,22 @@ void setup()
   pinMode(SonarTriggerAvant, OUTPUT);
   pinMode(SonarTriggerArriere, OUTPUT);
   pinMode(SonarTriggerDroite, OUTPUT);
+  pinMode(SonarTriggerDroite2, OUTPUT);
   pinMode(SonarTriggerGauche, OUTPUT);
 
   pinMode(SonarEchoAvant, INPUT);
   pinMode(SonarEchoArriere, INPUT);
   pinMode(SonarEchoDroite, INPUT);
+  pinMode(SonarEchoDroite2, INPUT);
   pinMode(SonarEchoGauche, INPUT);
 
   digitalWrite(SonarTriggerAvant, LOW);
   digitalWrite(SonarTriggerArriere, LOW);
   digitalWrite(SonarTriggerDroite, LOW);
+  digitalWrite(SonarTriggerDroite2, LOW);
   digitalWrite(SonarTriggerGauche, LOW);
 
+  Serial.begin(9600);
   
   servorgb.attach(12);
   servoarm.attach(11);
@@ -50,7 +56,6 @@ void setup()
 }
 
 void loop() {
-  caisse(SonarTriggerAvant, SonarEchoAvant, rotationTime, moteur);
-  delay(50000);
+  
 
 }
