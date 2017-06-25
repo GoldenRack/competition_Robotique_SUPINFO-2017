@@ -1,11 +1,8 @@
-#include <Motor.h>
-#include "motor.h"
-
 void glass(){
 	while(getSonarDistance(SonarTriggerArriere, SonarEchoArriere) <= 650){
 		delayMicroseconds(10);
 	}
-	rotate(1, 1, rotateSpeed, motor);
+	rotate(1, 1, rotateSpeed, moteur);
 	while(getSonarDistance(SonarTriggerAvant, SonarEchoAvant) >= 200){
 		delayMicroseconds(10);
 	}
@@ -19,5 +16,5 @@ void glass(){
 		servoarm.write(0);
 		delay(200);
 	}
-	rotate(1, 2, rotateSpeed, motor);
+	rotate(1, 2, rotateSpeed, moteur);
 }
