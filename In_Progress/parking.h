@@ -46,16 +46,61 @@ void parkingDance(){
   moteur.avancer(2, rotateSpeed);
   delay(rotationTime*4);
   moteur.stop(3);
+}
 
 
-void parking(){
-  getOrientation();
-  moveForward();
-  delay(1000);
-  rotation(2, 1);
-  moveForward();
-  delay(1000);
-  moveToCenter();
-  parkingDance();
-  moveForward();
+
+void parking(int SonarTriggerDroite, int SonarEchoDroite,int SonarTriggerAllign, int SonarEchoAllign, Moteur moteur)
+{
+  long mm;
+  allignement(SonarTriggerDroite, SonarEchoDroite, SonarTriggerAllign, SonarEchoAllign);
+  motorstart(128,moteur);
+  mm = getSonarDistance(SonarTriggerAvant, SonarEchoAvant);
+  delay(10);
+  while(mm >=30)
+  {
+    delay(10);
+    mm = getSonarDistance(SonarTriggerAvant, SonarEchoAvant);
+    delay(10);
+  }
+  delay(250);
+  moteur.stop(3);
+  moteurback(128, moteur);
+  mm = getSonarDistance(SonarTriggerArriere, SonarEchoArriere);
+  delay(10);
+  while(mm >=30)
+  {
+    delay(10);
+    mm = getSonarDistance(SonarTriggerArriere, SonarEchoArriere);
+    delay(10);
+  }
+  delay(255);
+  moteur.stop(3);
+  motorstart(128,moteur);
+  mm = getSonarDistance(SonarTriggerAvant, SonarEchoAvant);
+  delay(10);
+  while(mm >=40)
+  {
+    delay(10);
+    mm = getSonarDistance(SonarTriggerAvant, SonarEchoAvant);
+    delay(10);
+  }
+  moteur.stop(3);
+  if(getSonarDistance(SonarTriggerDroite, SonarEchoDroite) > 41)
+  {
+    rotate(1,2,0,moteur);
+  }
+  else
+  {
+    rotate(1,1,0,moteur);
+  }
+  moteur.stop(3);
+  motorstart(128,moteur);
+  while(getcolor(control,0,0,0,0) == 1)
+  {
+
+  }
+  break;
+
+
 }
