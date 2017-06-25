@@ -7,6 +7,8 @@
 #include "Capteurrgb.h"
 #include "train_fantome.h"
 #include "caisse.h"
+#include "montagne.h"
+#include "bowling.h"
 
 Moteur moteur(2,3,4,5,6,7);
 
@@ -24,6 +26,8 @@ int SonarEchoDroite2 = 39;
 int SonarEchoGauche = 29;
 
 int rotationTime = 18000;
+
+int control = 8;
 
 Servo servorgb;
 Servo servoarm;
@@ -49,13 +53,17 @@ void setup()
   digitalWrite(SonarTriggerGauche, LOW);
 
   Serial.begin(9600);
+
+  pinMode(control, OUTPUT);
   
   servorgb.attach(12);
   servoarm.attach(11);
-  servoarm.write(0);
+  servoarm.write(10);
 }
 
 void loop() {
-  
-
+  caisse( SonarTriggerAvant, SonarEchoAvant, SonarTriggerDroite, SonarEchoDroite, SonarTriggerDroite2, SonarEchoDroite2, rotationTime, moteur, servoarm, control);
+  Ftrain(servoarm, SonarTriggerArriere, SonarEchoArriere, SonarEchoDroite, SonarTriggerDroite, SonarTriggerDroite2, SonarEchoDroite2, control, moteur);
+  montagne(control, moteur);  
+  strike(moteur, rotationTime, SonarTriggerAvant, SonarTriggerArriere, SonarEchoArriere,SonarTriggerDroite, SonarEchoDroite,SonarTriggerDroite2, SonarEchoDroite2, SonarEchoAvant);
 }

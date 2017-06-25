@@ -1,25 +1,21 @@
-void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int SonarEchoDroite, int SonarTriggerDroite, int controle, Moteur moteur)
+void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int SonarEchoDroite, int SonarTriggerDroite, int SonarTriggerAllign, int SonarEchoAllign, int controle, Moteur moteur)
 
 {
-	int lecheMur = 100;
-
-	if (getSonarDistance(SonarTriggerDroite, SonarEchoDroite)<lecheMur)
-
-	{
-		unsigned char color ;
-		float distance ;
+	
+		int color ;
 		color = getcolor(controle);
 		if  (color = 3)/// couleur gris train fantom
 		{	
 			moteur.stop(3);
 			//déploiement bras
-			distance = getSonarDistance( SonarTriggerArriere, SonarEchoArriere);
-			servoarm.write(90);
-			while(distance<190)
+			servoarm.write(140);
+      ratrapage(SonarTriggerDroite, SonarEchoDroite,SonarTriggerAllign, SonarEchoAllign, moteur);
+      motorstart(128, moteur);
+      moteur.avancer(1, 145);
+			while(getSonarDistance(SonarTriggerArriere, SonarEchoArriere)<100)
 				{
-
-				distance = getSonarDistance(SonarTriggerArriere, SonarEchoArriere);
-				motorstart(255, moteur);
+          delayMicroseconds(10);
+				  //motorstart(255, moteur);
 
 
 
@@ -28,21 +24,12 @@ void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int S
 				}
 				moteur.stop(3);
 				servoarm.write(0);
-				motorstart(255, moteur);
+				motorstart(100, moteur);
 
 			
 
-		}
+		
 
 	}
-	else if (getSonarDistance(  SonarTriggerDroite, SonarEchoDroite)>lecheMur)
-	{
-		moteur.reculer(3,200);
-		delay(1000);
-		moteur.avancer(2, 200);
-		delay(500);
-		motorstart(255, moteur);
-		Ftrain(servoarm, SonarTriggerArriere, SonarEchoArriere, SonarEchoDroite, SonarTriggerDroite, controle, moteur);
-
-	}
+	
 }
