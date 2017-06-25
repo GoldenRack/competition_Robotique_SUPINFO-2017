@@ -2,9 +2,11 @@
 void rotate(int turn, int rotation, int rotationTime, Moteur moteur){
   int firstWheel, secondWheel, i;
   if (rotation == 1){
+    rotationTime = 14000;
     firstWheel = 1;
     secondWheel = 2;
   } else {
+    rotationTime = 10000;
     firstWheel = 2;
     secondWheel = 1;
   }
