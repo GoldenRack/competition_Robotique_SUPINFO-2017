@@ -13,9 +13,13 @@ int getSonarDistance(int trigger, int echo){
 int getPos(int SonarTriggerAvant, int SonarTriggerArriere, int SonarTriggerDroite, int SonarTriggerGauche, int SonarEchoAvant, int SonarEchoArriere, int SonarEchoDroite, int SonarEchoGauche){
   int mmAvant, mmArriere, mmDroite, mmGauche;
   mmAvant = getSonarDistance(SonarTriggerAvant, SonarEchoAvant);
+  delay(10);
   mmArriere = getSonarDistance(SonarTriggerArriere, SonarEchoArriere);
+  delay(10);
   mmDroite = getSonarDistance(SonarTriggerDroite, SonarEchoDroite);
+  delay(10);
   mmGauche = getSonarDistance(SonarTriggerGauche, SonarEchoGauche);
+  delay(10);
   return mmAvant, mmArriere, mmDroite, mmGauche;
 }
 
@@ -33,3 +37,34 @@ void getOrientation(int SonarTriggerAvant, int SonarTriggerArriere, int SonarTri
   }
 }
 
+long allignement(int SonarTriggerDroite, int SonarEchoDroite,int SonarTriggerAllign, int SonarEchoAllign)
+{
+  long mmAvant, mmAllign,delta;
+  mmAvant = getSonarDistance(SonarTriggerAvant, SonarEchoAvant);
+  delay(10);
+  mmAllign = getSonarDistance(SonarTriggerAllign, SonarEchoAllign);
+  delay(10);
+  delta = mmAvant - mmAllign;
+  return delta
+}
+
+void ratrapage(int SonarTriggerDroite, int SonarEchoDroite,int SonarTriggerAllign, int SonarEchoAllign, Moteur moteur)
+{
+  long delta = allignement(int SonarTriggerDroite, int SonarEchoDroite,int SonarTriggerAllign, int SonarEchoAllign);
+  delay(10);
+  while(0 < delta <= 10)
+  {
+    delay(10);
+    delta = allignement(int SonarTriggerDroite, int SonarEchoDroite,int SonarTriggerAllign, int SonarEchoAllign);
+    delay(10);
+    rotate(1,1,100,moteur);
+  }
+  while(0 > delta >= -10)
+  {
+    delay(10);
+    delta = allignement(int SonarTriggerDroite, int SonarEchoDroite,int SonarTriggerAllign, int SonarEchoAllign);
+    delay(10);
+    rotate(1,2,100,moteur);
+  }
+  moteur.stop(3);
+}
