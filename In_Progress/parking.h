@@ -1,19 +1,3 @@
-#include <Moteur.h>
-#include "moteur.h"
-
-void getOrientation(){
-  bool north;
-  int mmAvant, mmArriere, mmDroite, mmGauche = getPos();
-  if (getSonarDistance(SonarTriggerDroite, SonarEchoDroite) >= 500 - robotWidth/2 or 
-    getSonarDistance(SonarTriggerGauche, SonarEchoGauche) >= 500 - robotWidth/2)north = true;
-  else north = false;
-  
-  if (north){
-    rotate(1, 2);
-    moteur.stop(3);
-}
-
-
 void moveForward(){
   bool pushed = false;
   moteur.start(movementSpeed, motor);

@@ -20,7 +20,7 @@ int SonarEchoArriere = 33;
 int SonarEchoDroite = 23;
 int SonarEchoGauche = 29;
 
-int rotationTime = 775;
+int rotationTime = 18000;
 
 Servo servorgb;
 Servo servoarm;
@@ -43,10 +43,20 @@ void setup()
   digitalWrite(SonarTriggerGauche, LOW);
 
   
-  servorgb.attach(11);
-  servoarm.attach(12);
+  servorgb.attach(12);
+  servoarm.attach(11);
+  servoarm.write(0);
 }
 
 void loop() {
+  motorstart(255, moteur);
+  delay(2000);
+  for (int i = 0; i < 18000; ++i)
+  {
+    moteur.avancer(1, 128);
+    moteur.reculer(2, 128);
+  }
+  moteur.stop(3);
+  delay(5000);
 
 }
