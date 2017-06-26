@@ -1,15 +1,15 @@
-void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int SonarEchoDroite, int SonarTriggerDroite, int SonarTriggerAllign, int SonarEchoAllign, int controle, Moteur moteur)
+void Ftrain(Servo servoarm, int SonarTriggerArriere, int SonarEchoArriere, int SonarEchoDroite, int SonarTriggerDroite,int controle, Moteur moteur)
 
 {
 	
 		int color ;
-		color = getcolor(controle);
+		color = getcolor(controle,0,0,0,0);
 		if  (color = 3)/// couleur gris train fantom
 		{	
 			moteur.stop(3);
 			//déploiement bras
 			servoarm.write(140);
-      ratrapage(SonarTriggerDroite, SonarEchoDroite,SonarTriggerAllign, SonarEchoAllign, moteur);
+      
       motorstart(128, moteur);
       moteur.avancer(1, 145);
 			while(getSonarDistance(SonarTriggerArriere, SonarEchoArriere)<100)

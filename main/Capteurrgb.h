@@ -1,10 +1,15 @@
 int getcolor(int control,int rougeM,int vertM,int bleuM,int clearM)
 {
-	Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X);
+  Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X);
 
-	uint16_t clear, rouge, vert, bleu;
+  uint16_t clear, rouge, vert, bleu;
 
-	digitalWrite(control, LOW);      
+  digitalWrite(control,HIGH);
+
+    delay(60);
+    
+
+  digitalWrite(control, LOW);      
 
     delay(60);   
   
@@ -14,7 +19,7 @@ int getcolor(int control,int rougeM,int vertM,int bleuM,int clearM)
 
     if ((93 <= int(clear) <= 103) && (79 <= int(rouge) <= 89) && (45 <= int(vert) <= 55) && (50 <= int(bleu) <= 65))
     {
-    	return 1;
+      return 1;
     }
     else if((99 <= int(clear) <= 109) && (47 <= int(rouge) <= 57) && (50 <= int(vert) <= 60) && (48 <= int(bleu) <= 58))
     {      
@@ -40,7 +45,7 @@ int getcolor(int control,int rougeM,int vertM,int bleuM,int clearM)
 
 void peur(int control )
 {
-	digitalWrite(control, LOW);      
+  digitalWrite(control, LOW);      
     delay(100);  
   
   
@@ -51,7 +56,7 @@ void peur(int control )
 
 void photoQueen(int control)
 {
-	digitalWrite(control, LOW);      
+  digitalWrite(control, LOW);      
 
   delay(1000);   
   
@@ -84,11 +89,12 @@ int colorMontagne(int control)
 
   int rougeM, vertM, bleuM, clearM;
 
-  rougeM = int rouge;
-  vertM = int vert;
-  bleuM = int bleu;
-  clearM = int clear;
+  rougeM = int (rouge);
+  vertM = int (vert);
+  bleuM = int (bleu);
+  clearM = int (clear);
 
   return rougeM, vertM, bleuM, clearM;
 
 }
+
